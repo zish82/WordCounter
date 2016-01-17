@@ -18,7 +18,7 @@ namespace UnitTest
 
             Assert.That(values.Count, Is.EqualTo(0));
         }
-        
+
         [Test]
         public void CounterReturnsCountedWords()
         {
@@ -38,7 +38,5 @@ namespace UnitTest
             Assert.That(values.Count, Is.EqualTo(expectedResult.Count));
             Assert.IsTrue(expectedResult.All(x => values.Contains(x)));
         }
-
-
     }
 }
