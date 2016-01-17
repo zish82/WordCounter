@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 
 namespace WordCounter.Core
 {
     public interface ICount
     {
-        IDictionary<string, int> Search(string searchString);
+        ObservableCollection<WordCount> Count(string searchString);
     }
 }
