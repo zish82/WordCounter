@@ -2,7 +2,7 @@
 
 namespace WordCounter.Core
 {
-    public class StringCounter
+    public class StringCounter : ICount
     {
         public IDictionary<string, int> Search(string searchString)
         {

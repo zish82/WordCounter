@@ -7,7 +7,7 @@ namespace UnitTest
     public class WhenSearching
     {
         [Test]
-        public void NothingFound()
+        public void EmptySearchReturnsNoResult()
         {
             var searchString = "";
             var searcher = new StringCounter();
