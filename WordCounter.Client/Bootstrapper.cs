@@ -2,7 +2,6 @@
 using Microsoft.Practices.Unity;
 using Prism.Unity;
 using WordCounter.Client.Core;
-using WordCounter.Client.ViewModels;
 
 namespace WordCounter.Client
 {

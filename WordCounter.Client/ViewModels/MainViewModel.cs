@@ -42,8 +42,6 @@ namespace WordCounter.Client.ViewModels
             this.count = count;
             CountWordsCommand = new DelegateCommand(CountWordsExecute, CountWordsCanExecute);
             CountedWords = new ObservableCollection<WordCountViewModel>();
-            stringText = "awhat are you doing what are you doing";
-
         }
 
         private bool CountWordsCanExecute()
