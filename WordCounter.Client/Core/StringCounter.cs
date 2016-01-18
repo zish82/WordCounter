@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using WordCounter.Client.ViewModels;
 
 namespace WordCounter.Client.Core
@@ -16,14 +15,12 @@ namespace WordCounter.Client.Core
             foreach (var item in matchQuery)
             {
                 wordCount.Add(new WordCountViewModel { Word = item, Count = source.Count(x => x == item) });
-                Task.Delay(2000);
             }
         }
 
         private static string[] GetSplitString(string searchString)
         {
-            string[] source = searchString.Split(new char[] {'.', '?', '!', ' ', ';', ':', ','},
-                StringSplitOptions.RemoveEmptyEntries);
+            var source = searchString.Split(new[] {'.', '?', '!', ' ', ';', ':', ','}, StringSplitOptions.RemoveEmptyEntries);
             return source;
         }
     }

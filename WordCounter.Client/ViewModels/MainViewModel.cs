@@ -10,6 +10,7 @@ namespace WordCounter.Client.ViewModels
     {
         private readonly ICount count;
         private string stringText;
+        private bool isBusy;
         public ICommand CountWordsCommand { get; set; }
 
         public string StringText
@@ -23,6 +24,17 @@ namespace WordCounter.Client.ViewModels
             }
         }
 
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set
+            {
+                isBusy = value;
+                OnPropertyChanged();
+                RaiseCanExecuteChanged();
+            }
+        }
+
         public ObservableCollection<WordCountViewModel> CountedWords { get; private set; }
 
         public MainViewModel(ICount count)
@@ -30,18 +42,21 @@ namespace WordCounter.Client.ViewModels
             this.count = count;
             CountWordsCommand = new DelegateCommand(CountWordsExecute, CountWordsCanExecute);
             CountedWords = new ObservableCollection<WordCountViewModel>();
+            stringText = "awhat are you doing what are you doing";
 
         }
 
         private bool CountWordsCanExecute()
         {
-            return !string.IsNullOrWhiteSpace(StringText);
+            return !string.IsNullOrWhiteSpace(StringText) && !isBusy;
         }
 
         private void CountWordsExecute()
         {
             CountedWords.Clear();
+            IsBusy = true;
             count.Count(StringText, CountedWords);
+            IsBusy = false;
         }
 
         private void RaiseCanExecuteChanged()
