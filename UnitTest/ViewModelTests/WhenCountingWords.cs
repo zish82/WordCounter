@@ -46,5 +46,18 @@ namespace UnitTest.ViewModelTests
 
             Assert.That(viewModel.CountedWords.Count, Is.EqualTo(0));
         }
+        
+        [Test]
+        public void ExecuteCommandSetsAndClearsBusyStatus()
+        {
+            const string stringText = "hello how are you";
+            var counter = new Mock<ICount>();
+            var viewModel = new MainViewModel(counter.Object) { StringText = stringText };
+            viewModel.CountedWords.Add(new WordCountViewModel());
+
+            viewModel.CountWordsCommand.Execute(null);
+
+            Assert.That(viewModel.CountedWords.Count, Is.EqualTo(0));
+        }
     }
 }

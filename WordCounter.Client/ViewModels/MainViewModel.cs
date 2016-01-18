@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Input;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -39,10 +38,10 @@ namespace WordCounter.Client.ViewModels
             return !string.IsNullOrWhiteSpace(StringText);
         }
 
-        private async void CountWordsExecute()
+        private void CountWordsExecute()
         {
             CountedWords.Clear();
-            await count.Count(StringText, CountedWords);
+            count.Count(StringText, CountedWords);
         }
 
         private void RaiseCanExecuteChanged()

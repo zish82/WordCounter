@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using NUnit.Framework;
-using WordCounter.Client;
 using WordCounter.Client.Core;
 using WordCounter.Client.ViewModels;
 
@@ -24,7 +23,7 @@ namespace UnitTest.CoreTests
         }
 
         [Test]
-        public async void CounterReturnsCountedWords()
+        public void CounterReturnsCountedWords()
         {
             const string searchString = "this is a statement, and so is this.";
             var expectedResult = new ObservableCollection<WordCountViewModel>
@@ -39,7 +38,7 @@ namespace UnitTest.CoreTests
             var searcher = new StringCounter();
             var countedWords = new ObservableCollection<WordCountViewModel>();
             
-            await searcher.Count(searchString, countedWords);
+            searcher.Count(searchString, countedWords);
 
             Assert.That(countedWords.Count, Is.EqualTo(expectedResult.Count));
             Assert.IsTrue(expectedResult.All(x => Contains(countedWords, x)));
