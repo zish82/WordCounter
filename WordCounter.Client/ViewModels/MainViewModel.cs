@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Input;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -30,6 +31,7 @@ namespace WordCounter.Client.ViewModels
             this.count = count;
             CountWordsCommand = new DelegateCommand(CountWordsExecute, CountWordsCanExecute);
             CountedWords = new ObservableCollection<WordCountViewModel>();
+
         }
 
         private bool CountWordsCanExecute()
@@ -39,6 +41,7 @@ namespace WordCounter.Client.ViewModels
 
         private void CountWordsExecute()
         {
+            CountedWords.Clear();
             count.Count(StringText, CountedWords);
         }
 

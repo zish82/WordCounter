@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using Moq;
 using NUnit.Framework;
-using WordCounter.Client;
 using WordCounter.Client.Core;
 using WordCounter.Client.ViewModels;
 
@@ -33,6 +32,19 @@ namespace UnitTest.ViewModelTests
             viewModel.CountWordsCommand.Execute(null);
 
             counter.Verify(x => x.Count(It.Is<string>(s => s == stringText), It.IsAny<ObservableCollection<WordCountViewModel>>()));
+        }
+
+        [Test]
+        public void ExecuteCommandClearsPrviousResults()
+        {
+            const string stringText = "hello how are you";
+            var counter = new Mock<ICount>();
+            var viewModel = new MainViewModel(counter.Object) { StringText = stringText };
+            viewModel.CountedWords.Add(new WordCountViewModel());
+
+            viewModel.CountWordsCommand.Execute(null);
+
+            Assert.That(viewModel.CountedWords.Count, Is.EqualTo(0));
         }
     }
 }
