@@ -24,7 +24,7 @@ namespace UnitTest.CoreTests
         }
 
         [Test]
-        public void CounterReturnsCountedWords()
+        public async void CounterReturnsCountedWords()
         {
             const string searchString = "this is a statement, and so is this.";
             var expectedResult = new ObservableCollection<WordCountViewModel>
@@ -39,7 +39,7 @@ namespace UnitTest.CoreTests
             var searcher = new StringCounter();
             var countedWords = new ObservableCollection<WordCountViewModel>();
             
-            searcher.Count(searchString, countedWords);
+            await searcher.Count(searchString, countedWords);
 
             Assert.That(countedWords.Count, Is.EqualTo(expectedResult.Count));
             Assert.IsTrue(expectedResult.All(x => Contains(countedWords, x)));

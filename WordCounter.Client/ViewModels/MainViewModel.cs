@@ -39,10 +39,10 @@ namespace WordCounter.Client.ViewModels
             return !string.IsNullOrWhiteSpace(StringText);
         }
 
-        private void CountWordsExecute()
+        private async void CountWordsExecute()
         {
             CountedWords.Clear();
-            count.Count(StringText, CountedWords);
+            await count.Count(StringText, CountedWords);
         }
 
         private void RaiseCanExecuteChanged()

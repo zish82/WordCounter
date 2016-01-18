@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using WordCounter.Client.ViewModels;
 
 namespace WordCounter.Client.Core
 {
     public class StringCounter : ICount
     {
-        public ObservableCollection<WordCountViewModel> Count(string searchString, ObservableCollection<WordCountViewModel> wordCount)
+        public async Task<ObservableCollection<WordCountViewModel>> Count(string searchString, ObservableCollection<WordCountViewModel> wordCount)
         {
             var result = new ObservableCollection<WordCountViewModel>();
 
@@ -20,6 +21,7 @@ namespace WordCounter.Client.Core
             foreach (var item in matchQuery)
             {
                 wordCount.Add(new WordCountViewModel { Word = item, Count = source.Count(x => x == item) });
+                await Task.Delay(2000);
             }
 
             return result;
