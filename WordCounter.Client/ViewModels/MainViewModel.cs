@@ -20,7 +20,6 @@ namespace WordCounter.Client.ViewModels
             this.count = count;
             CountWordsCommand = new DelegateCommand(CountWordsExecute, CountWordsCanExecute);
             CountedWords = new ObservableCollection<WordCountViewModel>();
-            StringText = "Please type your search here";
         }
 
         private bool CountWordsCanExecute()
