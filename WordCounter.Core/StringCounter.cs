@@ -13,9 +13,9 @@ namespace WordCounter.Core
             return source;
         }
 
-        public ObservableCollection<WordCount> Count(string searchString)
+        public ObservableCollection<WordCountViewModel> Count(string searchString)
         {
-            var result = new ObservableCollection<WordCount>();
+            var result = new ObservableCollection<WordCountViewModel>();
 
             if (string.IsNullOrEmpty(searchString))
                 return result;
@@ -25,16 +25,10 @@ namespace WordCounter.Core
 
             foreach (var item in matchQuery)
             {
-                result.Add(new WordCount{ Word = item, Count = source.Count(x => x == item)});
+                result.Add(new WordCountViewModel{ Word = item, Count = source.Count(x => x == item)});
             }
 
             return result;
         }
-    }
-
-    public class WordCount
-    {
-        public string Word { get; set; }
-        public int Count { get; set; }
     }
 }

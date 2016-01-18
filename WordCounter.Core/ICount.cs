@@ -4,6 +4,6 @@ namespace WordCounter.Core
 {
     public interface ICount
     {
-        ObservableCollection<WordCount> Count(string searchString);
+        ObservableCollection<WordCountViewModel> Count(string searchString);
     }
 }

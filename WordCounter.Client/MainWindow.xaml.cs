@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using WordCounter.Client.Core;
+using WordCounter.Client.ViewModels;
 
 namespace WordCounter.Client
 {
@@ -9,6 +11,7 @@ namespace WordCounter.Client
     {
         public MainWindow()
         {
+            DataContext = new MainViewModel(new StringCounter());
             InitializeComponent();
         }
     }

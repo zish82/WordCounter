@@ -54,6 +54,7 @@
     <Compile Include="ICount.cs" />
     <Compile Include="StringCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WordCountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
