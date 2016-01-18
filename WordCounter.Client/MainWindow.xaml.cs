@@ -11,7 +11,7 @@ namespace WordCounter.Client
     {
         public MainWindow()
         {
-            DataContext = new MainViewModel(new StringCounter());
+            DataContext = new MainViewModel(new WordsCounterService());
             InitializeComponent();
         }
     }

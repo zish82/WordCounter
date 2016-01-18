@@ -21,7 +21,7 @@ namespace WordCounter.Client
         {
             base.ConfigureContainer();
 
-            RegisterTypeIfMissing(typeof(ICount), typeof(StringCounter), true);
+            RegisterTypeIfMissing(typeof(ICount), typeof(WordsCounterService), true);
         }
     }
 }

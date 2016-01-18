@@ -5,11 +5,11 @@ using WordCounter.Client.ViewModels;
 
 namespace WordCounter.Client.Core
 {
-    public class StringCounter : ICount
+    public class WordsCounterService : ICount
     {
-        public void Count(string searchString, ObservableCollection<WordCountViewModel> wordCount)
+        public void Count(string sentence, ObservableCollection<WordCountViewModel> wordCount)
         {
-            var source = GetSplitString(searchString);
+            var source = GetSplitString(sentence);
             var matchQuery = source.Distinct();
 
             foreach (var item in matchQuery)
@@ -18,9 +18,9 @@ namespace WordCounter.Client.Core
             }
         }
 
-        private static string[] GetSplitString(string searchString)
+        private string[] GetSplitString(string sentence)
         {
-            var source = searchString.Split(new[] {'.', '?', '!', ' ', ';', ':', ','}, StringSplitOptions.RemoveEmptyEntries);
+            var source = sentence.Split(new[] {'.', '?', '!', ' ', ';', ':', ','}, StringSplitOptions.RemoveEmptyEntries);
             return source;
         }
     }

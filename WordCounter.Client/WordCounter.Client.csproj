@@ -84,7 +84,7 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Core\ICount.cs" />
-    <Compile Include="Core\StringCounter.cs" />
+    <Compile Include="Core\WordsCounterService.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\WordCountViewModel.cs" />
     <Page Include="MainWindow.xaml">

@@ -15,10 +15,10 @@ namespace UnitTest.ViewModelTests
         [TestCase("this is text", true, ExpectedResult = false)]
         [TestCase("", true, ExpectedResult = false)]
         [TestCase(" ", true, ExpectedResult = false)]
-        public bool CanCountWordsWhenStringSearch(string stringText, bool isBusy)
+        public bool CanCountWords(string stringText, bool isBusy)
         {
-            var counter = new StringCounter();
-            var viewModel = new MainViewModel(counter) {StringText = stringText, IsBusy = isBusy};
+            var counter = new WordsCounterService();
+            var viewModel = new MainViewModel(counter) {Sentence = stringText, IsBusy = isBusy};
 
             var countedWords = viewModel.CountWordsCommand;
 
@@ -30,7 +30,7 @@ namespace UnitTest.ViewModelTests
         {
             const string stringText = "hello how are you";
             var counter = new Mock<ICount>();
-            var viewModel = new MainViewModel(counter.Object) { StringText = stringText };
+            var viewModel = new MainViewModel(counter.Object) { Sentence = stringText };
 
             viewModel.CountWordsCommand.Execute(null);
 
@@ -42,7 +42,7 @@ namespace UnitTest.ViewModelTests
         {
             const string stringText = "hello how are you";
             var counter = new Mock<ICount>();
-            var viewModel = new MainViewModel(counter.Object) { StringText = stringText };
+            var viewModel = new MainViewModel(counter.Object) { Sentence = stringText };
             viewModel.CountedWords.Add(new WordCountViewModel());
 
             viewModel.CountWordsCommand.Execute(null);

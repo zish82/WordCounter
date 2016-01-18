@@ -9,16 +9,16 @@ namespace WordCounter.Client.ViewModels
     public class MainViewModel : BindableBase
     {
         private readonly ICount count;
-        private string stringText;
+        private string sentence;
         private bool isBusy;
         public ICommand CountWordsCommand { get; set; }
 
-        public string StringText
+        public string Sentence
         {
-            get { return stringText; }
+            get { return sentence; }
             set
             {
-                stringText = value;
+                sentence = value;
                 OnPropertyChanged();
                 RaiseCanExecuteChanged();
             }
@@ -46,14 +46,14 @@ namespace WordCounter.Client.ViewModels
 
         private bool CountWordsCanExecute()
         {
-            return !string.IsNullOrWhiteSpace(StringText) && !isBusy;
+            return !string.IsNullOrWhiteSpace(Sentence) && !isBusy;
         }
 
         private void CountWordsExecute()
         {
             CountedWords.Clear();
             IsBusy = true;
-            count.Count(StringText, CountedWords);
+            count.Count(Sentence, CountedWords);
             IsBusy = false;
         }
 

@@ -8,13 +8,13 @@ using WordCounter.Client.ViewModels;
 namespace UnitTest.CoreTests
 {
     [TestFixture]
-    public class WhenSearching
+    public class WhenCounting
     {
         [Test]
         public void EmptySearchReturnsNoResult()
         {
             const string countString = "";
-            var searcher = new StringCounter();
+            var searcher = new WordsCounterService();
             var countedWords = new ObservableCollection<WordCountViewModel>();
 
             searcher.Count(countString, countedWords);
@@ -35,7 +35,7 @@ namespace UnitTest.CoreTests
                 new WordCountViewModel { Word = "and", Count = 1},
                 new WordCountViewModel { Word = "so", Count = 1}
             };
-            var searcher = new StringCounter();
+            var searcher = new WordsCounterService();
             var countedWords = new ObservableCollection<WordCountViewModel>();
 
             searcher.Count(searchString, countedWords);
