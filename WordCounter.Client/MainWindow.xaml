@@ -4,8 +4,8 @@
         Title="MainWindow" Height="377.022" Width="696.14">
     <DockPanel LastChildFill="True" Margin="10,10,10,10">
         <DockPanel DockPanel.Dock="Top" Height="50" Margin="5" VerticalAlignment="Top">
-            <Button Command="{Binding CountWordsCommand}" DockPanel.Dock="Right" Content="Count" Width="100" Margin="5"></Button>
-            <TextBox Text="{Binding Sentence, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="5,10" FontSize="14" Padding="5"/>
+            <Button Command="{Binding CountWordsCommand}" DockPanel.Dock="Right" Content="Count" Width="100" Margin="5" IsDefault="True"></Button>
+            <TextBox Text="{Binding Sentence, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="5,10" FontSize="14" Padding="2"/>
         </DockPanel>
         <ScrollViewer >
             <ListBox ItemsSource="{Binding CountedWords}" DockPanel.Dock="Bottom">
