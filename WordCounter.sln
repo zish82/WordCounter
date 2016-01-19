@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{F184BE64-7185-4E24-A1A3-AAF6CB6A1B85}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{13B3BE9D-CAE7-4FAF-814A-08921F015734}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCounter.Client", "WordCounter.Client\WordCounter.Client.csproj", "{A65405B7-6894-4235-9F17-52D656220CEB}"
@@ -26,8 +24,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{13B3BE9D-CAE7-4FAF-814A-08921F015734} = {F184BE64-7185-4E24-A1A3-AAF6CB6A1B85}
 	EndGlobalSection
 EndGlobal
